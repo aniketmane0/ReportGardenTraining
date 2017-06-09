@@ -1,0 +1,16 @@
+def SetExpression(cold,rowd,col1,row1,exp,col2,row2,array)
+   case exp
+   	when '+'
+   		array[rowd][cold]=array[row1][col1]+array[row2][col2]
+    when '-'
+   		array[rowd][cold]=array[row1][col1]-array[row2][col2]
+   	when  '/'
+   		array[rowd][cold]=array[row1][col1]/array[row2][col2]
+	when '*'
+   		array[rowd][cold]=array[row1][col1]*array[row2][col2]
+	when '**'
+   		array[rowd][cold]=array[row1][col1]**array[row2][col2]
+	when '%'
+   		array[rowd][cold]=array[row1][col1]%array[row2][col2]  
+   end 		
+end
