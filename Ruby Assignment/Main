@@ -1,0 +1,67 @@
+
+begin
+
+	puts "Action List:"
+	puts "1) Set Value"
+	puts "2) Set Expression"
+	puts "3) Exit"
+	puts "Enter your choice: "
+
+	choice=gets.chomp.to_i       
+
+	case choice 
+
+		when 1 #TO SET VALUE
+			puts "Enter the value as 'A0 = 5' "
+	        setval=gets.chomp.to_s
+	        setvalarr=setval.split()
+	        colval=setvalarr[0][0].to_sym
+	        rowval=setvalarr[0][1].to_i
+	        value=setvalarr[2].to_i
+	        puts "#{Keyword[colval]}#{rowval} = #{value}"
+	        SetValue(Keyword[colval],rowval,value,array)      
+	        Update(array,uparray)  
+		        for i in 0...10
+					 for j in 0...10
+						print "|#{array[i][j]}|    "
+				  	 end
+				     print "\n"
+		        end  
+
+	    when 2 #FOR EXPRESSION
+	    	puts "Enter the value as 'C0 = A0 + B0'"
+	    	setval=gets.chomp.to_s
+	    	uparray.push(setval)
+	    	setvalarr=setval.split()
+	    	#destination
+	    	colvaldest=setvalarr[0][0].to_sym
+	    	rowvaldest=setvalarr[0][1].to_i
+	         
+	        #val1
+	        colval1=setvalarr[2][0].to_sym
+	    	rowval1=setvalarr[2][1].to_i
+
+	    	#val2
+	    	colval2=setvalarr[4][0].to_sym
+	    	rowval2=setvalarr[4][1].to_i
+
+	    	expression = setvalarr[3]
+
+	    	SetExpression(Keyword[colvaldest],rowvaldest,Keyword[colval1],rowval1,expression,Keyword[colval2],rowval2,array)
+	           for i in 0...10
+					 for j in 0...10
+						print "|#{array[i][j]}|    "
+				  	 end
+			     print "\n"
+	            end    
+
+	     
+	      when 3 
+	      	puts "Are you sure? Enter [y]/n"
+	      	setval=gets.chomp.to_s
+		        if setval.upcase! =='N'
+		        choice=1
+		        end 
+	end
+
+end while choice!=3
