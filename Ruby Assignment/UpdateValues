@@ -1,0 +1,22 @@
+def Update(array,uparray)
+		
+		uparray.each do |setval|
+		 setvalarr=setval.split()
+	    	#destination
+	    	colvaldest=setvalarr[0][0].to_sym
+	    	rowvaldest=setvalarr[0][1].to_i
+	         
+	        #val1
+	        colval1=setvalarr[2][0].to_sym
+	    	rowval1=setvalarr[2][1].to_i
+
+	    	#val2
+	    	colval2=setvalarr[4][0].to_sym
+	    	rowval2=setvalarr[4][1].to_i
+
+	    	expression = setvalarr[3]
+
+	    	SetExpression(Keyword[colvaldest],rowvaldest,Keyword[colval1],rowval1,expression,Keyword[colval2],rowval2,array)
+	    end   
+
+end
