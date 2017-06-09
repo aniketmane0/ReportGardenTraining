@@ -1,0 +1,5 @@
+def SetValue(col,row,val,array)
+  
+   #puts "#{col}#{row} = #{val}"
+  array[row][col]=val
+end
