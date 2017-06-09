@@ -1,0 +1,31 @@
+# BASIC ARRAY
+array =  Array.new(10){Array.new(10,0)}
+	#put array length
+	for i in 0...10
+		for j in 0...10
+	print "|#{array[i][j]}|    "
+	end
+    print "\n"
+end
+
+
+## LIST OF PREVIOUS COMMANDS
+
+uparray = Array[]
+
+
+KeyWord=Hash.new()
+
+
+Keyword={
+		A: 0,
+		B: 1,
+		C: 2,
+		D: 3,
+		E: 4,
+		F: 5,
+		G: 6,
+		H: 7,
+		I: 8,
+		J: 9
+	}
