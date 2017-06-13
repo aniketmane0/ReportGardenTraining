@@ -1,0 +1,106 @@
+class FileSaveError < StandardError
+   attr_reader :reason
+   def initialize(reason)
+   		puts "#{reason}"
+      @reason = reason
+      super(reason)
+   end
+end
+
+
+
+
+def cal_number(array) #conversion instead
+    total=0
+    i=0
+	array.reverse_each do |num|
+		 total+=num*(10**(i))
+		i+=1
+	end
+return total
+end
+       
+
+
+
+#implicit conversion for number
+
+
+
+
+
+def Average()
+
+
+	puts "\n"
+	puts "Input a string. The string can be alphanumeric which includes characters, numbers, special character."
+	input_string=gets.chomp
+	
+	
+	    if input_string.strip==""
+	    	message="Empty String is not allowed!"
+	    	raise FileSaveError,message
+	    	return
+	    end
+	
+	
+
+    counter=0
+    sum=0
+
+    negative=0
+    positive=0
+
+    while counter < input_string.size do 
+    	d_array=[]
+    	num=input_string[counter].to_i
+    	if input_string[counter] == '-'
+    		while (input_string[counter+1].to_i >0 && input_string[counter+1].to_i<=9 || input_string[counter+1]=='0') do
+				counter+=1
+			end
+
+			negative+=1
+		end
+
+		if (num>0 && num<=9)
+			while (input_string[counter].to_i>0 && input_string[counter].to_i <=9 ) do
+				d_array.push(input_string[counter].to_i)
+				counter+=1
+			end
+
+			counter-=1
+			positive+=1
+			r_num=cal_number(d_array)
+			sum+=r_num
+			d_array.clear
+		end
+		counter+=1
+	end
+
+
+    
+	if ( positive == 0 && negative != 0)
+		message = "String does not contain any positive number!"
+		raise FileSaveError, message
+		return
+	elsif ( positive == 0 && negative == 0)
+		message = "Does not contain any numbers"
+		raise FileSaveError, message
+		return
+	end
+
+    average = sum/positive
+
+	puts "\n"
+	puts "Average of positive numbers: #{average}"
+	
+
+
+
+	
+end
+	#ERROR
+
+Average()
+
+	#end
