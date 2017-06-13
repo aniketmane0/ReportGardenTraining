@@ -1,7 +1,26 @@
+1.CREATE TABLE CustomersNew(id int primary key,  name text, email text, address text);
+  CREATE TABLE itemsNew  (item_id int primary key,  item_name text, price text );
+  COPY CustomersNew from '/home/user/customers.csv' delimiter ',' csv;
+  COPY itemsNew from '/home/user/items.csv' delimiter ',' csv;
+2.ALTER TABLE CustomersNew ADD CONSTRAIBNT MyUniqueConstraint unique(email);
+3.ALTER TABLE itemsNew ADD CONSTRAINT MyUnique unique(item_name);
+  ALTER TABLE itemsNew ALTER COLUMN price set NOT NULL;
 4.SELECT id,item_name,price FROM itemsNew WHERE price>40000;
 5.SELECT id,item_name,price FROM itemsNew WHERE (price>13000) AND (price<50000);
 6.SELECT id,item_name,price FROM itemsNew WHERE price<12000;
-7.
+7. ALTER TABLE CustomersNew ADD PHONE_NUMBER int;
+      	 UPDATE CustomersNew SET contact = 7862476812 where id = 1;
+         UPDATE CustomersNew SET contact = 7862476813 where id = 2;
+         UPDATE CustomersNew SET contact = 7862476814 where id = 3;
+         UPDATE CustomersNew SET contact = 7862476815 where id = 4;
+         UPDATE CustomersNew SET contact = 7862476816 where id = 5;
+         UPDATE CustomersNew SET contact = 7862476817 where id = 6;
+         UPDATE CustomersNew SET contact = 7862476818 where id = 7;
+         UPDATE CustomersNew SET contact = 7862476819 where id = 8;
+         UPDATE CustomersNew SET contact = 7862476811 where id = 9;
+         UPDATE CustomersNew SET contact = 7862476822 where id = 10;
+	
+    
 8.SELECT name FROM CustomersNew GROUP BY name HAVING (COUNT(name)>1);
 9.SELECT item_name FROM ItemsNew ORDER BY price ASC LIMIT 5;
 10.SELECT * FROM CustomersNew WHERE (Name='ra') AND (Name='ph');
